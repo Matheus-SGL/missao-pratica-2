@@ -9,22 +9,48 @@
 </head>
 <body>
     <input type="number" name="valor" id="valor">
-    <input type="button" value="Adicionar" onclick="add">
+    <input type="button" value="Adicionar" onclick="add()">
     <select name="tipo" id="tipo">
         <option value="bubble" selected>Bubble Sorte</option>
         <option value="selection">Selection Sort</option>
         <option value="quick">Quick Sort</option>
     </select>
-    <input type="button" value="Ordenar" onclick="ordenar">
-    <input type="button" value="Misturar" onclick="misturar">
+    <input type="button" value="Ordenar" onclick="ordenar()">
+    <input type="button" value="Misturar" onclick="misturar()">
     <ul id="valores"></ul>
     <script>
         function add() {
-
+            let valor = document.getElementById("valor");
+            let lista = document.getElementById("valores");
+            let node = document.createElement("li");
+            let no_texto = document.createTextNode(valor.value);
+            node.appendChild(no_texto);
+            lista.appendChild(node);
+            console.log(valor)
         }
 
         function ordernar() {
-            
+            let lista_valores = document.getElementById("valores");
+            let lista_selecao = document.getElementById("tipo");
+            let item_lista = lista_valores.children;
+            var vetor = [];
+            for(let valor of item_lista) {
+                vetor.push(parseInt(valor.value));
+            }
+            switch (lista_valores.selectedIndex) {
+                case 0:
+                    //bubble_sort
+                    break;
+                case 1:
+                    //selection_sort
+                    break;
+                case 2:
+                    //quick_sort
+                    break;
+                    
+                default:
+                    break;
+            }
         }
 
         function misturar() {
