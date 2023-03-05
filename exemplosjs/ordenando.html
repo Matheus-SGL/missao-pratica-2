@@ -11,7 +11,7 @@
     <input type="number" name="valor" id="valor">
     <input type="button" value="Adicionar" onclick="add()">
     <select name="tipo" id="tipo">
-        <option value="bubble" selected>Bubble Sorte</option>
+        <option value="bubble" selected>Bubble Sort</option>
         <option value="selection">Selection Sort</option>
         <option value="quick">Quick Sort</option>
     </select>
@@ -26,20 +26,23 @@
             let no_texto = document.createTextNode(valor.value);
             node.appendChild(no_texto);
             lista.appendChild(node);
-            console.log(valor)
+            valor.value = "";
         }
 
-        function ordernar() {
+        function ordenar() {
             let lista_valores = document.getElementById("valores");
             let lista_selecao = document.getElementById("tipo");
             let item_lista = lista_valores.children;
             var vetor = [];
-            for(let valor of item_lista) {
-                vetor.push(parseInt(valor.value));
+            for(let valor = 0; valor < item_lista.length; valor++) {
+                vetor.push(parseInt(item_lista[valor].innerHTML));
             }
-            switch (lista_valores.selectedIndex) {
+            console.log(vetor);
+            switch (lista_selecao.selectedIndex) {
                 case 0:
-                    //bubble_sort
+                    let newVetor = bubble_sorte(vetor);
+                    console.log(newVetor);
+                    console.log(vetor);
                     break;
                 case 1:
                     //selection_sort
