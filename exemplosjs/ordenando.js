@@ -21,16 +21,18 @@ var shuffle = (vetor, qtdTrocas) => {
 
 //Função bubble_sort, para ordenar um vetor de inteiros com o algoritmo Bubble
 //Sort, tendo como parâmetro de entrada o vetor de inteiros
-var bubble_sort = (vetor) => {
-    for (let x = 0; x < vetor.length; x++) {
-        for (let y = 0; y < vetor.length; y++) {
-            if (vetor[y] > vetor[y + 1]) {
-                swap(vetor, vetor[y], vetor[y+1]);
+const bubble_sort = (lista) => {
+    for (let x = 0; x < lista.length; x++) {
+        for (let y = 0; y < lista.length - x - 1; y++) {
+            if (lista[y] > lista[y + 1]) {
+                swap(lista, y, y+1);
             }
         }
     }
-    return vetor;
+    console.log("To dentro" + lista);
+    return lista;
 }
+
 
 // Função selection_sort, para ordenar um vetor de inteiros utilizando o algoritmo
 // Selection Sort, tendo como parâmetro de entrada o vetor de valores inteiros
@@ -41,7 +43,7 @@ var selection_sort = (vetor) => {
             if (vetor[y] < vetor[menor]) { menor = y; }
         }
         if (menor != x) {
-            swap(vetor, vetor[x], vetor[menor]);
+            swap(vetor, x, menor);
         }
     }
     return vetor;
